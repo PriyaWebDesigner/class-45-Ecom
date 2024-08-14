@@ -38,7 +38,7 @@
 		<div class="container">
 			<div class="header-top-wrapper">
 				<a href="index.html" class="brand-logo-outer">
-					<img src="./assets/images/logo.png" alt="Logo">
+					<img src="{{asset('/frontend/assets/images/logo.png')}}" alt="Logo">
 				</a>
 				<div class="search-form-outer">
 					<form action="" method="GET" class="form-group search-form">
@@ -108,7 +108,7 @@
 								<ul class="header__category-list">
 									<li class="header__category-list-item item-has-submenu">
 										<a href="category-product.html" class="header__category-list-item-link">
-											<img src="./assets/images/product.png" alt="category">
+											<img src="{{asset('/frontend/assets/images/product.png')}}" alt="category">
 											Test Category
 										</a>
 										<ul class="header__nav-item-category-submenu">
@@ -160,7 +160,7 @@
 						<ul class="header__category-list">
 							<li class="header__category-list-item item-has-submenu">
 								<a href="category-product.html" class="header__category-list-item-link">
-									<img src="./assets/images/product.png" alt="category">
+									<img src="{{asset('/frontend/assets/images/product.png')}}" alt="category">
 									Test Category
 								</a>
 								<ul class="header__nav-item-category-submenu">
@@ -175,7 +175,7 @@
 					</div>
 					<div class="home__slider-items-wrapper">
 						<div class="home__slider-item-outer">
-							<img src="./assets/images/slider.jpg" alt="image" class="home__slider-item-image">
+							<img src="{{asset('/frontend/assets/images/slider.jpg')}}" alt="image" class="home__slider-item-image">
 						</div>
 					</div>
 				</div>
@@ -559,7 +559,7 @@
 					<div class="product__item-outer">
 						<div class="product__item-image-outer">
 							<a href="details.html" class="product__item-image-inner">
-								<img src="{{asset('/fronetnd/assets/images/product1.jpg')}}" alt="Product Image" />
+								<img src="{{asset('/frontend/assets/images/product1.jpg')}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
 								<a href="details.html" class="product__item-add-cart-btn-inner">
@@ -802,13 +802,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 	<!-- Slick Slider CDN -->
-	<script src="./assets/plugins/slick-slider/slick.min.js"></script>
+	<script src="{{asset('/frontend/assets/plugins/slick-slider/slick.min.js')}}"></script>
 	<!-- owl carosal js -->
-	<script src="./assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+	<script src="{{asset('/frontend/assets/plugins/owl-carousel/owl.carousel.min.js')}}"></script>
 	<!-- Wow js -->
-	<script src="./assets/js/wow.min.js"></script>
+	<script src="{{asset('/frontend/assets/js/wow.min.js')}}"></script>
 	<!-- Main JS -->
-	<script src="./assets/js/main.js"></script>
+	<script src="{{asset('/frontend/assets/js/main.js')}}"></script>
 	
 	<script type="text/javascript">
 		new WOW().init();
