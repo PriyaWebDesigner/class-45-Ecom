@@ -23,6 +23,22 @@ class FrontendController extends Controller
     {
         return view ('frontend.checkout');
     }
+    public function shop ()
+    {
+        return view ('frontend.shop');
+    }
+    public function returnProcess ()
+    {
+        return view ('frontend.return-process');
+    }
+    public function privacyPolicy ()
+    {
+        return view ('frontend.privacy-policy');
+    }
+    public function category ()
+    {
+        return view ('frontend.category');
+    }
 }
 
 
