@@ -15,3 +15,7 @@ Route::get('/shop', [FrontendController::class,'shop']);
 Route::get('/return/process', [FrontendController::class,'returnProcess']);
 Route::get('/privacy/policy', [FrontendController::class,'privacyPolicy']);
 Route::get('/category', [FrontendController::class,'category']);
+Route::get('/sub/category', [FrontendController::class,'subCategory']);
+Route::get('/view/all', [FrontendController::class,'viewAll']);
+Route::get('/view/all', [FrontendController::class,'viewAll']);
+Route::get('/thank/you', [FrontendController::class,'thankYou']);

@@ -10,7 +10,7 @@
                         <div class="product-page-header-wrapper">
                             <div class="left-side-box">
                                 <h4 class="title">
-                                    Products
+                                    Hot Products
                                 </h4>
                             </div>
                             <div class="right-side-box">

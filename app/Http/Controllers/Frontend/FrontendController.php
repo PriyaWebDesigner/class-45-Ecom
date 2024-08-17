@@ -39,6 +39,18 @@ class FrontendController extends Controller
     {
         return view ('frontend.category');
     }
+    public function subCategory ()
+    {
+        return view ('frontend.sub-category');
+    }
+    public function viewAll ()
+    {
+        return view ('frontend.view-all');
+    }
+    public function thankYou ()
+    {
+        return view ('frontend.thank-you');
+    }
 }
 
 
