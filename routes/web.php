@@ -19,3 +19,7 @@ Route::get('/sub/category', [FrontendController::class,'subCategory']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/thank/you', [FrontendController::class,'thankYou']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
