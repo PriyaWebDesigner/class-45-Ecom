@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Frontend\FrontendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -22,4 +24,5 @@ Route::get('/thank/you', [FrontendController::class,'thankYou']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/login', [AuthController::class, 'adminLogin'])->name('adminLogin');
