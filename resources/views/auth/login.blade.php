@@ -196,7 +196,7 @@
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
-    @enderror
+        @enderror
     
     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" />
     @error('password')
