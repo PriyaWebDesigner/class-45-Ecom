@@ -13,111 +13,68 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Product Name*</label>
-                            <input type="text" name="name" value="" class="form-control" placeholder="Enter product name*" required>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
+                            <input type="text" name="name" value="" class="form-control"
+                                placeholder="Enter product name*" required>
                         </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled</label>
-                            <select class="form-control select2" disabled="disabled" style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
                     </div>
-                    <!-- /.col -->
+
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Multiple</label>
-                            <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                                style="width: 100%;">
-                                <option>Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
+                            <label>Product Sku Code*</label>
+                            <input type="text" name="sku_code" value="" class="form-control"
+                                placeholder="Enter product sku_code*" required>
                         </div>
-                        <!-- /.form-group -->
-                        <div class="form-group">
-                            <label>Disabled Result</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
-                            </select>
-                        </div>
-                        <!-- /.form-group -->
                     </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Select Category</label>
+                            <select class="form-control select2" style="width: 100%;" name="cat_id">
+                                <option selected="selected">Category 1</option>
+                                <option>Category 2</option>
+                            </select>
+                        </div>
+                    </div>
 
-                <h5>Custom Color Variants</h5>
-                <div class="row">
-                    <div class="col-12 col-sm-6">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Minimal (.select2-danger)</label>
-                            <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"
-                                style="width: 100%;">
-                                <option selected="selected">Alabama</option>
-                                <option>Alaska</option>
-                                <option>California</option>
-                                <option>Delaware</option>
-                                <option>Tennessee</option>
-                                <option>Texas</option>
-                                <option>Washington</option>
+                            <label>Select Sub-Category</label>
+                            <select class="form-control select2" style="width: 100%;" name="sub_cat_id">
+                                <option selected="selected">Sub-Category 1</option>
+                                <option>Sub-Category 2</option>
                             </select>
                         </div>
-                        <!-- /.form-group -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-12 col-sm-6">
+
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Multiple (.select2-purple)</label>
-                            <div class="select2-purple">
-                                <select class="select2" multiple="multiple" data-placeholder="Select a State"
-                                    data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                    <option>Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
-                                </select>
-                            </div>
+                            <label>Product Quantity*</label>
+                            <input type="number" name="qty" value="" class="form-control"
+                                placeholder="Enter product quantity*" required>
                         </div>
-                        <!-- /.form-group -->
                     </div>
-                    <!-- /.col -->
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Product Buying Price</label>
+                            <input type="number" name="buying_price" value="" class="form-control"
+                                placeholder="Enter product buying price" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Product Regular Price</label>
+                            <input type="number" name="regular_price" value="" class="form-control"
+                                placeholder="Enter product regular price" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Product Discount Price</label>
+                            <input type="number" name="discount_price" value="" class="form-control"
+                                placeholder="Enter product discount price" required>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
-                the plugin.
             </div>
         </div>
     </div>
