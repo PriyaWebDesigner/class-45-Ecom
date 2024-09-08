@@ -40,3 +40,4 @@ Route::get('/admin/create-product', [ProductController::class, 'create'])->name(
 
 //Category Routes
 Route::get('/admin/create-category', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/admin/store-category', [CategoryController::class, 'store'])->name('category.store');
