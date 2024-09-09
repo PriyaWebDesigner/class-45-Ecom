@@ -22,12 +22,18 @@ class CategoryController extends Controller
         $category->slug = Str::slug($request->name);
 
         if(isset($request->image)){
-            $imageName = rand(). '-category-'.'.'.$request->image->extention();   //678900-category-.jpg
-            $request->image->move('/backend/images/category/', $imageName);
+            $imageName = rand(). '-category-'.'.'.$request->image->extension();   //678900-category-.jpg
+            $request->image->move('backend/images/category/', $imageName);
     
             $category->image = $imageName;
         }
 
         $category->save();
+        return redirect()->back();
+    }
+
+    public function show ()
+    {
+        return view ('backend.category.list');
     }
 }
