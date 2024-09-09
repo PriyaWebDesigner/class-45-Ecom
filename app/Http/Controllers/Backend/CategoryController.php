@@ -38,4 +38,16 @@ class CategoryController extends Controller
         // dd($categories);
         return view ('backend.category.list',compact('categories'));
     }
+
+    public function delete ($id)
+    {
+        $category = Category::find($id);
+        // dd($category);
+        if($category->image as file_exists('backend/images/category/'.$category->image)){
+            unlink('backend/images/category/'.$category->image)
+        }
+
+        $category->delete();
+        return redirect()->back();
+    }
 }
