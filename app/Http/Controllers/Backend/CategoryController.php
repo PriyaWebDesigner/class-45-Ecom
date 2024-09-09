@@ -33,7 +33,9 @@ class CategoryController extends Controller
     }
 
     public function show ()
-    {
-        return view ('backend.category.list');
+    {   
+        $categories = Category::get();
+        // dd($categories);
+        return view ('backend.category.list',compact('categories'));
     }
 }
