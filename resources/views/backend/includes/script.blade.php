@@ -56,7 +56,7 @@
 <script src="{{asset('backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('backend/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('backend/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{asset('backned/plugins/jszip/jszip.min.js')}}"></script>
+<script src="{{asset('backend/plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{asset('backend/plugins/pdfmake/pdfmake.min.js')}}"></script>
 <script src="{{asset('backend/plugins/pdfmake/vfs_fonts.js')}}"></script>
 <script src="{{asset('backend/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>

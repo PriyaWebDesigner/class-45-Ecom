@@ -22,7 +22,7 @@
                   <tr>
                     <td>{{$loop->index+1}}</td>
                     <td>
-                      <img src="{{asset('backend/images/category'.$category->image)}}" height="100" width="100">
+                      <img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100">
                     </td>
                     <td>{{$category->name}}</td>
                     <td>

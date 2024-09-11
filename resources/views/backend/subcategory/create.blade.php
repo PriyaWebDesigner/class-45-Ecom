@@ -3,34 +3,38 @@
 @section('content')
     <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
-        <form action="{{url('/admin/update-category/'.$category->id)}}" method="POST" enctype="multipart/form-data" class="form-control">
+        <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data" class="form-control">
             @csrf
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Category</h3>
+                    <h3 class="card-title">Add New SubCategory</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Category Name*</label>
-                                <input type="text" name="name" value="{{$category->name}}" class="form-control"
+                                <label>SubCategory Name*</label>
+                                <input type="text" name="name" value="" class="form-control"
                                     placeholder="Enter category name*" required>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Category Image</label>
-                                <input type="file" accept="image/*" name="image" class="form-control">
-                                <img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100">
+                                <label>Select Category</label>
+                                <select name="cat_id" class="form-control">
+                                    <option value="" selected disabled>Select Category</option>
+                                    @foreach ($categories as $category)
+                                       <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="submit" value="Update" class="form-control btn btn-success">
+                                <input type="submit" value="Submit" class="form-control btn btn-success">
                             </div>
                         </div>
                     </div>
