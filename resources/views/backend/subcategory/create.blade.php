@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
-        <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data" class="form-control">
+        <form action="{{route('subcategory.store')}}" method="POST" enctype="multipart/form-data" class="form-control">
             @csrf
             <div class="card card-default">
                 <div class="card-header">

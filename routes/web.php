@@ -50,3 +50,6 @@ Route::post('/admin/update-category/{id}', [CategoryController::class, 'update']
 
 //Sub Category Routes
 Route::get('/admin/create-subcategory',[SubCategoryController::class,'create'])->name('subcategory.create');
+Route::post('/admin/store-subcategory', [SubCategoryController::class, 'store'])->name('subcategory.store');
+Route::get('/admin/show-subcategory',[SubCategoryController::class, 'show'])->name('subcategory.show');
+Route::get('/admin/delete-subcategory{id}',[SubCategoryController::class, 'delete'])->name('subcategory.delete');
