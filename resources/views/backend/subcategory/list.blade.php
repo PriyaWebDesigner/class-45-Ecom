@@ -24,7 +24,7 @@
                     <td>{{$subcategory->cat_id}}</td>
                     <td>
                       <a href="" class="btn btn-primary">Edit</a>
-                      <a href="{{url('/admin/delete-subcategory{id}'.$subcategory->id)}}" class="btn btn-danger">Delete</a>
+                      <a href="{{url('/admin/delete-subcategory'.$subcategory->id)}}" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                   @endforeach
