@@ -34,5 +34,20 @@ class ProductController extends Controller
         $product->product_type = $request->product_type;
         $product->description = $request->description;
         $product->product_policy = $request->product_policy;
+
+        if(isset($request->image)){
+            $imageName = rand(). '-product-'. '.' . $request->image->extension();  //798696-product-.jpg
+            $request->image->move('backend/images/product/' , $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->save();
+        return redirect()->back();
+    }
+
+    public function show ()
+    {
+        $products = Product::get();
+        return view ('backend.product.show', compact('products'));
     }
 }
