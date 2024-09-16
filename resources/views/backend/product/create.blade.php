@@ -8,107 +8,120 @@
                 <h3 class="card-title">Add New Product</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Name*</label>
-                            <input type="text" name="name" value="" class="form-control"
-                                placeholder="Enter product name*" required>
+            <form action="{{url('/admin/store-product')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Name*</label>
+                                <input type="text" name="name" value="" class="form-control"
+                                    placeholder="Enter product name*" required>
+                            </div>
                         </div>
-                    </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Sku Code*</label>
+                                <input type="text" name="sku_code" value="" class="form-control"
+                                    placeholder="Enter product sku_code*" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <select class="form-control select2" style="width: 100%;" name="cat_id">
+                                    <option selected disabled>Select Category</option>
+                                    @foreach ($categories as $category)
+                                     <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Sub-Category</label>
+                                <select class="form-control select2" style="width: 100%;" name="sub_cat_id">
+                                    <option selected disabled>Select Subcategory</option>
+                                    @foreach ($subCategories as $subcategory)
+                                     <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Quantity*</label>
+                                <input type="number" name="qty" value="" class="form-control"
+                                    placeholder="Enter product quantity*" required>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Buying Price</label>
+                                <input type="number" name="buying_price" value="" class="form-control"
+                                    placeholder="Enter product buying price" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Regular Price</label>
+                                <input type="number" name="regular_price" value="" class="form-control"
+                                    placeholder="Enter product regular price" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Product Discount Price</label>
+                                <input type="number" name="discount_price" value="" class="form-control"
+                                    placeholder="Enter product discount price" required>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Select Product Type</label>
+                                <select class="form-control select2" style="width: 100%;" name="product_type">
+                                    <option selected="selected" value="hot">Hot Product</option>
+                                    <option value="new">New Arrival</option>
+                                    <option value="regular">Regular Product</option>
+                                    <option value="discount">Discount Product</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Product Description</label>
+                                <textarea id="summernote" name="description"></textarea>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Product Policy</label>
+                                <textarea id="summernote2" name="product_policy"></textarea>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" accept="image/*" name="image" value="" class="form-control" required>
+                            </div>
+                        </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Sku Code*</label>
-                            <input type="text" name="sku_code" value="" class="form-control"
-                                placeholder="Enter product sku_code*" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Select Category</label>
-                            <select class="form-control select2" style="width: 100%;" name="cat_id">
-                                <option selected="selected">Category 1</option>
-                                <option>Category 2</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Select Sub-Category</label>
-                            <select class="form-control select2" style="width: 100%;" name="sub_cat_id">
-                                <option selected="selected">Sub-Category 1</option>
-                                <option>Sub-Category 2</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Quantity*</label>
-                            <input type="number" name="qty" value="" class="form-control"
-                                placeholder="Enter product quantity*" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Buying Price</label>
-                            <input type="number" name="buying_price" value="" class="form-control"
-                                placeholder="Enter product buying price" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Regular Price</label>
-                            <input type="number" name="regular_price" value="" class="form-control"
-                                placeholder="Enter product regular price" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Product Discount Price</label>
-                            <input type="number" name="discount_price" value="" class="form-control"
-                                placeholder="Enter product discount price" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Select Product Type</label>
-                            <select class="form-control select2" style="width: 100%;" name="product_type">
-                                <option selected="selected" value="hot">Hot Product</option>
-                                <option value="new">New Arrival</option>
-                                <option value="regular">Regular Product</option>
-                                <option value="discount">Discount Product</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Product Description</label>
-                            <textarea id="summernote" name="description"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Product Policy</label>
-                            <textarea id="summernote2" name="product_policy"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Product Image</label>
-                            <input type="file" accept="image/*" name="regular_price" value="" class="form-control" required>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="form-control btn btn-success">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection

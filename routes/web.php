@@ -39,6 +39,7 @@ Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adm
 
 //Product Routes
 Route::get('/admin/create-product', [ProductController::class, 'create'])->name('product.create');
+Route::post('/admin/store-product', [ProductController::class, 'store'])->name('product.store');
 
 //Category Routes
 Route::get('/admin/create-category', [CategoryController::class, 'create'])->name('category.create');
