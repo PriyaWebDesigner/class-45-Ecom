@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('qty');
             $table->string('sku_code');
             $table->string('product_type');
-            $table->text('description');
+            $table->longText('description');
             $table->text('product_policy');
             $table->string('image');
             $table->timestamps();
