@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -41,7 +42,17 @@ class ProductController extends Controller
             $product->image = $imageName;
         }
 
-        $product->save();
+        $product->save();  //45
+        // Add Color..
+        if(isset($request->color)){
+            // dd($request->color);
+            foreach($request->color as $color_name){
+                $color = new Color();
+                $color->product_id = $product->id;
+                $color->color_name = $color_name;
+                $color->save();
+            }
+        }
         return redirect()->back();
     }
 

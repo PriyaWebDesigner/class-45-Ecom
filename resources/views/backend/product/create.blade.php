@@ -129,7 +129,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Product Image</label>
-                                <input type="file" accept="image/*" name="image" value="" class="form-control" required>
+                                <input type="file" accept="image/*" name="image" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Gallery Image</label>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
                             </div>
                         </div>
 
@@ -321,18 +328,18 @@
 
 {{-- Add more color... --}}
 <script>
-    $(document)-ready(function(){
+    $(document).ready(function(){
        $("#add_color").click(function(){
-           $("color_fields")-append('<input type="text" name="color[]" id="color" value="" class="form-control" placeholder="Enter Color">')  
+           $("#color_fields").append('<input type="text" name="color[]" id="color" value="" class="form-control" placeholder="Enter Color">')  
        })
     })
 </script>
 
 {{-- Add more size... --}}
 <script>
-    $(document)-ready(function(){
+    $(document).ready(function(){
        $("#add_size").click(function(){
-           $("size_fields")-append('<input type="text" name="size[]" id="size" value="" class="form-control" placeholder="Enter Size">')  
+           $("#size_fields").append('<input type="text" name="size[]" id="size" value="" class="form-control" placeholder="Enter Size">')  
        })
     })
 </script>
