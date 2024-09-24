@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Color;
+use App\Models\GalleryImage;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -41,18 +43,42 @@ class ProductController extends Controller
             $request->image->move('backend/images/product/' , $imageName);
             $product->image = $imageName;
         }
-
         $product->save();  //45
+
         // Add Color..
         if(isset($request->color)){
             // dd($request->color);
-            foreach($request->color as $color_name){
+            foreach($request->color as $colorName){
                 $color = new Color();
                 $color->product_id = $product->id;
-                $color->color_name = $color_name;
+                $color->color_name = $colorName;
                 $color->save();
             }
         }
+        //Add Size...
+        if(isset($request->size)){
+            foreach($request->size as $sizeName){
+                $size = new Size();
+                $size->product_id = $product->id;
+                $size->size_name = $sizeName;
+                $size->save();
+            }
+        }
+
+        //Gallery Image..
+        if(isset($request->galleryImage)){
+            foreach($request->galleryImage as $image){
+                $galleryImage = new GalleryImage();
+                $galleryImage->product_id = $product->id; 
+
+                $imageName = rand().'-gallery-'.'.'.$image->extension();   //798696-gallery-.jpg
+                $image->move('backend/images/galleryImage/' , $imageName);
+
+                $galleryImage->image = $imageName;
+                $galleryImage->save();
+            }
+        }
+        
         return redirect()->back();
     }
 
