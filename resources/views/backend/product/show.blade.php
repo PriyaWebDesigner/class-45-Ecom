@@ -37,8 +37,8 @@
                     <td>{{$product->discount_price}}</td>
                     <td>{{$product->qty}}</td>
                     <td>
-                      <a href="" class="btn btn-primary">Edit</a>
-                      <a href="" class="btn btn-danger">Delete</a>
+                      <a href="{{url('/admin/edit-product/' .$product->id)}}" class="btn btn-primary">Edit</a>
+                      <a href="{{url('/admin/delete-product/' .$product->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                   </tr>
                   @endforeach
