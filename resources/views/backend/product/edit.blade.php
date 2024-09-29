@@ -58,8 +58,9 @@
                         <div class="col-md-6">
                             <div class="form-group" id="color_fields">
                                 <label>Product Color (Optional)</label>
-                                <input type="text" name="color[]" id="color" value="" class="form-control"
-                                    placeholder="Enter Color">
+                                @foreach ($product->color as $colorName)
+                                <input type="text" name="color[]" id="color" value="{{$colorName->color_name}}" class="form-control" placeholder="Enter Color">
+                                @endforeach
                             </div>
                             <button type="button" class="btn btn-primary" id="add_color">Add More</button>
                         </div>
@@ -67,8 +68,9 @@
                         <div class="col-md-6">
                             <div class="form-group" id="size_fields">
                                 <label>Product Size (Optional)</label>
-                                <input type="text" name="size[]" id="size" value="" class="form-control"
-                                    placeholder="Enter Size">
+                                @foreach ($product->size as $sizeName)
+                                <input type="text" name="size[]" id="size" value="{{$sizeName->size_name}}" class="form-control" placeholder="Enter Size">
+                                @endforeach
                             </div>
                             <button type="button" class="btn btn-primary" id="add_size">Add More</button>
 
@@ -108,10 +110,18 @@
                             <div class="form-group">
                                 <label>Select Product Type</label>
                                 <select class="form-control select2" style="width: 100%;" name="product_type">
-                                    <option selected="selected" value="hot">Hot Product</option>
-                                    <option value="new">New Arrival</option>
-                                    <option value="regular">Regular Product</option>
-                                    <option value="discount">Discount Product</option>
+                                    <option value="hot" @if ($product->product_type == "hot")
+                                        selected
+                                    @endif>Hot Product</option>
+                                    <option value="new" @if ($product->product_type == "new")
+                                        selected
+                                    @endif>New Arrival</option>
+                                    <option value="regular" @if ($product->product_type == "regular")
+                                        selected
+                                    @endif>Regular Product</option>
+                                    <option value="discount" @if ($product->product_type == "discount")
+                                        selected
+                                    @endif>Discount Product</option>
                                 </select>
                             </div>
                         </div>
@@ -143,6 +153,9 @@
                                 <label>Gallery Image</label>
                                 <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
                             </div>
+                            @foreach ($product->galleryImage as $image)
+                            <img src="{{asset('backend/images/galleryImage/' .$image->image)}}" heigh="200" width="200">
+                            @endforeach
                         </div>
 
                         <div class="col-md-12">
