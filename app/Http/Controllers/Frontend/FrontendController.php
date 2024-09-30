@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index ()
     {
-        return view ('frontend.index');
+        $hotProducts = Product::where('product_type','hot')->get();
+        // dd($hotProducts);
+        $newProducts = Product::where('product_type','new')->get();
+        $regularProducts = Product::where('product_type','regular')->get();
+        $discountProducts = Product::where('product_type','discount')->get();
+        return view ('frontend.index', compact('hotProducts','newProducts','regularProducts','discountProducts'));
     }
     public function productDetails()
     {

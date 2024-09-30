@@ -143,7 +143,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Product Image</label>
-                                <input type="file" accept="image/*" name="image" class="form-control" required>
+                                <input type="file" accept="image/*" name="image" class="form-control">
                             </div>
                             <img src="{{asset('backend/images/product/'.$product->image)}}" height="200" width=200 alt="">
                         </div>
@@ -151,7 +151,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Gallery Image</label>
-                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control" required>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple class="form-control">
                             </div>
                             @foreach ($product->galleryImage as $image)
                             <img src="{{asset('backend/images/galleryImage/' .$image->image)}}" heigh="200" width="200">
@@ -160,7 +160,7 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="submit" value="Submit" class="form-control btn btn-success">
+                                <input type="submit" value="Update" class="form-control btn btn-success">
                             </div>
                         </div>
                     </div>
