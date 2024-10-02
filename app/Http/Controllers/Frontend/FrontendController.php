@@ -17,9 +17,11 @@ class FrontendController extends Controller
         $discountProducts = Product::where('product_type','discount')->get();
         return view ('frontend.index', compact('hotProducts','newProducts','regularProducts','discountProducts'));
     }
-    public function productDetails()
+    public function productDetails($id)
     {
-        return view ('frontend.product-details');
+        $product = Product::where('id', $id)->with('color','size', 'galleryImage')->first();
+        // dd($product);
+        return view ('frontend.product-details',compact('product'));
     }
     public function viewCart ()
     {
