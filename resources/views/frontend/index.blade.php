@@ -101,7 +101,7 @@
                             </div>
                             <div class="product__type-badge-outer">
                                 <span class="product__type-badge-inner">
-                                    Hot
+                                    {{ucfirst($product->product_type)}}
                                 </span>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="product__type-badge-outer">
                                 <span class="product__type-badge-inner">
-                                    New
+                                    {{ucfirst($product->product_type)}}
                                 </span>
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                             </div>
                             <div class="product__type-badge-outer">
                                 <span class="product__type-badge-inner">
-                                    Regular
+                                    {{ucfirst($product->product_type)}}
                                 </span>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                             </div>
                             <div class="product__type-badge-outer">
                                 <span class="product__type-badge-inner">
-                                    Discount
+                                    {{ucfirst($product->product_type)}}
                                 </span>
                             </div>
                         </div>

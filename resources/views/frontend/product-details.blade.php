@@ -50,7 +50,7 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <div class="product-details-select-items-wrap">
+                                        <di class="product-details-select-items-wrap">
                                             @foreach ($product->size as $size)
                                             <div class="product-details-select-item-outer">
                                                 <input type="radio" name="size" value="{{$size->size_name}}"
@@ -58,8 +58,7 @@
                                                 <label for="size" class="category-item-label">{{$size->size_name}}</label>
                                             </div>
                                             @endforeach
-                                        </div>
-c
+                                        </di>
                                     </form>
                                     <form action="" method="POST">
                                         <div class="purchase-info-outer">
