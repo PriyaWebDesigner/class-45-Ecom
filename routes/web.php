@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 //Frontend
 Route::get('/', [FrontendController::class, 'index']);
-Route::get('/product/details/{id}', [FrontendController::class, 'productDetails']);
+Route::get('/product/details/{slug}', [FrontendController::class, 'productDetails']);
 Route::get('/view-cart', [FrontendController::class,'viewCart']);
 Route::get('/checkout', [FrontendController::class,'checkout']);
 Route::get('/shop', [FrontendController::class,'shop']);
@@ -28,6 +28,7 @@ Route::get('/sub/category', [FrontendController::class,'subCategory']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/thank/you', [FrontendController::class,'thankYou']);
+Route::get('/add-to-cart/{id}', [FrontendController::class,'addToCart']);
 
 Auth::routes();
 

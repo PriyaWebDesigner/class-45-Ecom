@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,9 @@ class FrontendController extends Controller
         $discountProducts = Product::where('product_type','discount')->get();
         return view ('frontend.index', compact('hotProducts','newProducts','regularProducts','discountProducts'));
     }
-    public function productDetails($id)
+    public function productDetails($slug)
     {
-        $product = Product::where('id', $id)->with('color','size', 'galleryImage')->first();
+        $product = Product::where('slug', $slug)->with('color','size', 'galleryImage')->first();
         // dd($product);
         return view ('frontend.product-details',compact('product'));
     }
@@ -58,6 +59,24 @@ class FrontendController extends Controller
     public function thankYou ()
     {
         return view ('frontend.thank-you');
+    }
+    public function addToCart (Request $request, $id)
+    {
+        $product = Product::find($id);
+        $cart = new Cart();
+        $cart->ip_address = $request->ip();
+        $cart->product_id = $product->id;
+        $cart->qty = 1;
+        if($product->discount_price != null){
+            $cart->price = $product->discount_price;
+        }
+
+        if($product->discount_price == null){
+            $cart->price = $product->regular_price;
+        }
+
+        $cart->save();
+        return redirect()->back();
     }
 }
 
