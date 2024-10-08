@@ -62,20 +62,36 @@ class FrontendController extends Controller
     }
     public function addToCart (Request $request, $id)
     {
+        $cartProduct = Cart::where('product_id', $id)->where('ip_address', $request->ip())->first();
+        // dd($cartProduct);
         $product = Product::find($id);
-        $cart = new Cart();
-        $cart->ip_address = $request->ip();
-        $cart->product_id = $product->id;
-        $cart->qty = 1;
-        if($product->discount_price != null){
-            $cart->price = $product->discount_price;
+
+        if($cartProduct == null){
+            $cart = new Cart();
+        
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = 1;
+            if($product->discount_price != null){
+                $cart->price = $product->discount_price;
+            }
+    
+            if($product->discount_price == null){
+                $cart->price = $product->regular_price;
+            }
+
+            $cart->save();
+            toastr()->success('Successfully added to cart');
+            return redirect()->back();
         }
 
-        if($product->discount_price == null){
-            $cart->price = $product->regular_price;
+        if($cartProduct != null){
+            
+            $cartProduct->qty = $cartProduct->qty+1;
         }
 
-        $cart->save();
+        $cartProduct->save();
+        toastr()->success('Successfully added to cart');
         return redirect()->back();
     }
 }
