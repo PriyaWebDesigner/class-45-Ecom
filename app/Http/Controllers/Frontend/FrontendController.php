@@ -107,6 +107,8 @@ class FrontendController extends Controller
             $cart->ip_address = $request->ip();
             $cart->product_id = $product->id;
             $cart->qty = $request->qty;
+            $cart->color = $request->color;
+            $cart->size = $request->size;
             if($product->discount_price != null){
                 $cart->price = $product->discount_price;
             }
