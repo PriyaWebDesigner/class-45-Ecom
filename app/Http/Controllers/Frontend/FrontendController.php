@@ -94,6 +94,55 @@ class FrontendController extends Controller
         toastr()->success('Successfully added to cart');
         return redirect()->back();
     }
+
+    public function addToCartDetails (Request $request, $id)
+    {
+        $cartProduct = Cart::where('product_id', $id)->where('ip_address', $request->ip())->first();
+        // dd($cartProduct);
+        $product = Product::find($id);
+
+        if($cartProduct == null){
+            $cart = new Cart();
+        
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = $request->qty;
+            if($product->discount_price != null){
+                $cart->price = $product->discount_price;
+            }
+    
+            if($product->discount_price == null){
+                $cart->price = $product->regular_price;
+            }
+            $cart->save();
+
+            if($request->action == 'addToCart'){
+                return redirect()->back();
+            }
+
+            else if($request->action == 'buyNow'){
+                return redirect('/checkout');
+            }
+            toastr()->success('Successfully added to cart');
+            return redirect()->back();
+        }
+
+        if($cartProduct != null){
+            
+            $cartProduct->qty = $cartProduct->qty+$request->qty;
+        }
+        $cartProduct->save();
+
+        if($request->action == 'addToCart'){
+            return redirect()->back();
+        }
+
+        else if($request->action == 'buyNow'){
+            return redirect('/checkout');
+        }
+        toastr()->success('Successfully added to cart');
+        return redirect()->back();
+    }
 }
 
 

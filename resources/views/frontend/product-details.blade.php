@@ -38,7 +38,8 @@
                                             <del>{{ $product->regular_price }} Tk.</del>
                                         </span>
                                     </div>
-                                    <form action="" method="POST">
+                                    <form action="{{url('/add-to-cart/details/'. $product->id)}}" method="POST">
+                                        @csrf
                                         <div class="product-details-select-items-wrap">
                                             @foreach ($product->color as $color)
                                                 <div class="product-details-select-item-outer">

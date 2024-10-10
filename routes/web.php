@@ -29,6 +29,7 @@ Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/thank/you', [FrontendController::class,'thankYou']);
 Route::get('/add-to-cart/{id}', [FrontendController::class,'addToCart']);
+Route::post('/add-to-cart/details/{id}', [FrontendController::class,'addToCartDetails']);
 
 Auth::routes();
 
