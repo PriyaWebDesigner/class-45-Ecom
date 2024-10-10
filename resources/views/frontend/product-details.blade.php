@@ -61,13 +61,14 @@
                                         </di>
                                     </form>
                                     <form action="" method="POST">
+                                        @csrf
                                         <div class="purchase-info-outer">
                                             <div class="product-incremnt-decrement-outer" style="display: block">
                                                 <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-minus"></i>
                                                 </a>
                                                 <input type="number" readonly name="qty" placeholder="Qty"
-                                                    value="1" min="1" id="qty" style="height: 35px">
+                                                    value="1" min="1" id="c" style="height: 35px">
                                                 <a title="Increment" class="increment-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-plus"></i>
                                                 </a>
@@ -173,3 +174,24 @@
         </div>
     </section>
 @endsection
+
+@push('js')
+    <script>
+        var qtyInput = document.getElementById('qty');
+
+        var plusBtn = document.querySelector('increment-btn');
+        var minusBtn = document.querySelector('decrement-btn');
+
+        plusBtn.addEventListener('click', function(){
+            if(parseInt(qtyInput.value) < 5){
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            }
+        })
+
+        minusBtn.addEventListener('click', function(){
+            if(parseInt(qtyInput.value)> 1){
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+            }
+        })
+    </script>
+@endpush
