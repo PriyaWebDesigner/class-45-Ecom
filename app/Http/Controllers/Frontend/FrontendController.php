@@ -109,6 +109,7 @@ class FrontendController extends Controller
             $cart->qty = $request->qty;
             $cart->color = $request->color;
             $cart->size = $request->size;
+            
             if($product->discount_price != null){
                 $cart->price = $product->discount_price;
             }
@@ -119,14 +120,14 @@ class FrontendController extends Controller
             $cart->save();
 
             if($request->action == 'addToCart'){
+                toastr()->success('Successfully added to cart');
                 return redirect()->back();
             }
 
             else if($request->action == 'buyNow'){
+                toastr()->success('Successfully added to cart');
                 return redirect('/checkout');
             }
-            toastr()->success('Successfully added to cart');
-            return redirect()->back();
         }
 
         if($cartProduct != null){
@@ -136,14 +137,14 @@ class FrontendController extends Controller
         $cartProduct->save();
 
         if($request->action == 'addToCart'){
+            toastr()->success('Successfully added to cart');
             return redirect()->back();
         }
 
         else if($request->action == 'buyNow'){
+            toastr()->success('Successfully added to cart');
             return redirect('/checkout');
         }
-        toastr()->success('Successfully added to cart');
-        return redirect()->back();
     }
 }
 

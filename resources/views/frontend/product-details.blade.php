@@ -180,8 +180,8 @@
     <script>
         var qtyInput = document.getElementById('qty');
 
-        var plusBtn = document.querySelector('increment-btn');
-        var minusBtn = document.querySelector('decrement-btn');
+        var plusBtn = document.querySelector('.increment-btn');
+        var minusBtn = document.querySelector('.decrement-btn');
 
         plusBtn.addEventListener('click', function(){
             if(parseInt(qtyInput.value) < 5){
@@ -190,7 +190,7 @@
         })
 
         minusBtn.addEventListener('click', function(){
-            if(parseInt(qtyInput.value)> 1){
+            if(parseInt(qtyInput.value) > 1){
                 qtyInput.value = parseInt(qtyInput.value) - 1;
             }
         })
