@@ -38,6 +38,7 @@
                                             <del>{{ $product->regular_price }} Tk.</del>
                                         </span>
                                     </div>
+                                    
                                     <form action="{{url('/add-to-cart/details/'. $product->id)}}" method="POST">
                                         @csrf
                                         <div class="product-details-select-items-wrap">
@@ -60,15 +61,12 @@
                                             </div>
                                             @endforeach
                                         </di>
-                                    </form>
-                                    <form action="" method="POST">
-                                        @csrf
                                         <div class="purchase-info-outer">
                                             <div class="product-incremnt-decrement-outer" style="display: block">
                                                 <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-minus"></i>
                                                 </a>
-                                                <input type="number" readonly name="qty" placeholder="Qty"
+                                                <input type="number" readonly name="qty" id="qty" placeholder="Qty"
                                                     value="1" min="1" id="c" style="height: 35px">
                                                 <a title="Increment" class="increment-btn" style="margin-top: -10px;">
                                                     <i class="fas fa-plus"></i>
