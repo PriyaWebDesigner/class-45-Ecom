@@ -23,13 +23,16 @@ Route::get('/checkout', [FrontendController::class,'checkout']);
 Route::get('/shop', [FrontendController::class,'shop']);
 Route::get('/return/process', [FrontendController::class,'returnProcess']);
 Route::get('/privacy/policy', [FrontendController::class,'privacyPolicy']);
-Route::get('/category', [FrontendController::class,'category']);
 Route::get('/sub/category', [FrontendController::class,'subCategory']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/thank/you', [FrontendController::class,'thankYou']);
 Route::get('/add-to-cart/{id}', [FrontendController::class,'addToCart']);
 Route::post('/add-to-cart/details/{id}', [FrontendController::class,'addToCartDetails']);
+
+//Category Products...
+Route::get('/category-products/{slug}/{id}', [FrontendController::class,'categoryProducts']);
+Route::get('/subcategory-products/{slug}/{id}', [FrontendController::class,'subCategoryProducts']);
 
 Auth::routes();
 

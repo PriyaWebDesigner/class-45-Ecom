@@ -146,6 +146,17 @@ class FrontendController extends Controller
             return redirect('/checkout');
         }
     }
+
+
+    //Category Products..
+    public function categoryProducts ($slug, $id)
+    {
+        $products = Product::where('cat_id',$id)->get();
+        // dd($products);
+        $productsCount = $products->count();
+        // dd($productsCount);
+        return view ('frontend.category-products',compact('products','productsCount'));
+    }
 }
 
 
