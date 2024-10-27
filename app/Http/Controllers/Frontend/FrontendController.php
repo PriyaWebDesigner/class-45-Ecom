@@ -95,6 +95,14 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+    public function addToCartDelete ($id)
+    {
+         $cart = Cart::find($id);
+         $cart->delete();
+         toastr()->success('Successfully deleted from cart');
+         return redirect()->back();
+    }
+
     public function addToCartDetails (Request $request, $id)
     {
         $cartProduct = Cart::where('product_id', $id)->where('ip_address', $request->ip())->first();
