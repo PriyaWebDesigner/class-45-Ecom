@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -153,6 +154,17 @@ class FrontendController extends Controller
             toastr()->success('Successfully added to cart');
             return redirect('/checkout');
         }
+    }
+
+    public function confirmOrder (Request $request)
+    {
+        $order = new Order();
+
+        $order->c_name = $request->c_name;
+        $order->c_phone = $request->c_phone;
+        $order->address = $request->address;
+        $order->area = $request->area;
+        $order->price = $request->;
     }
 
 
