@@ -160,11 +160,22 @@ class FrontendController extends Controller
     {
         $order = new Order();
 
+        $previousOrder = Order::orderBy('id', 'desc')->first();
+        if($previousOrder == null){
+            $order->invoiceId = "xyz-1";
+        }
+        else{
+            $order->invoiceId = "xyz-".$previousOrder->id+1;  //"xyz-" 10+1
+        }
         $order->c_name = $request->c_name;
         $order->c_phone = $request->c_phone;
         $order->address = $request->address;
         $order->area = $request->area;
         $order->price = $request->inputGrandTotal;
+
+        $order->save();
+        toastr()->success('Order has been placed successfully');
+        return redirect()->back();
     }
 
 
