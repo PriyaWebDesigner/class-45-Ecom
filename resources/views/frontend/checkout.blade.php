@@ -68,7 +68,7 @@
                                     <span class="checkout-item-count">
                                        Color: {{$cart->color}} 
                                     </span>
-                                    {{-- <div class="checkout-product-incre-decre">
+                                   {{-- <div class="checkout-product-incre-decre">
                                         <button type="button" title="Decrement" class="qty-decrement-btn">
                                             <i class="fas fa-minus"></i>
                                         </button>
@@ -99,6 +99,7 @@
                             <div class="sub-total-item grand-total">
                                  <strong>Grand Total</strong>
                                  <strong id="grandTotal"></strong>
+                                 <input type="hidden" name="inputGrandTotal" id="inputGrandTotal" value="{{$totalCartAmount}}">
                             </div>
                         </div>
                         <div class="payment-item-outer">
@@ -137,6 +138,7 @@
             var grandTotal = subTotal+charge;
             document.getElementById('deliveryCharge').innerHTML = charge;
             document.getElementById('grandTotal').innerHTML = grandTotal;
+            document. getElementById('inputGrandTotal').value = grandTotal;
         }
 
         function grandTotalOut (){
@@ -146,6 +148,7 @@
             var grandTotal = subTotal+charge;
             document.getElementById('deliveryCharge').innerHTML = charge;
             document.getElementById('grandTotal').innerHTML = grandTotal;
+            document. getElementById('inputGrandTotal').value = grandTotal;
         }
     </script>
-@endpush
+@endpush 

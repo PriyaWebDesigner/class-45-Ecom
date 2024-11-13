@@ -164,7 +164,7 @@ class FrontendController extends Controller
         $order->c_phone = $request->c_phone;
         $order->address = $request->address;
         $order->area = $request->area;
-        $order->price = $request->;
+        $order->price = $request->inputGrandTotal;
     }
 
 
