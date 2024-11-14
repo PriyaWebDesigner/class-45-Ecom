@@ -163,10 +163,12 @@ class FrontendController extends Controller
 
         $previousOrder = Order::orderBy('id', 'desc')->first();
         if($previousOrder == null){
-            $order->invoiceId = "xyz-1";
+            $generatedInvoiceId = "xyz-1";
+            $order->invoiceId = $generatedInvoiceId;
         }
         else{
-            $order->invoiceId = "xyz-".$previousOrder->id+1;  //"xyz-" 10+1
+            $generatedInvoiceId = "xyz-".$previousOrder->id+1;
+            $order->invoiceId = $generatedInvoiceId;  //"xyz-" 10+1
         }
         $order->c_name = $request->c_name;
         $order->c_phone = $request->c_phone;
@@ -197,8 +199,14 @@ class FrontendController extends Controller
             toastr()->warning('No product in your cart');
             return redirect('/');
         }
+
         toastr()->success('Order has been placed successfully');
-        return redirect()->back();
+        return redirect('thank-you/'.$generatedInvoiceId);
+    }
+
+    public function thankYouPage ($invoiceId)
+    {
+        return view ('frontend.thank-you', compact('invoiceId'));
     }
 
 

@@ -26,7 +26,7 @@ Route::get('/privacy/policy', [FrontendController::class,'privacyPolicy']);
 Route::get('/sub/category', [FrontendController::class,'subCategory']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
-Route::get('/thank/you', [FrontendController::class,'thankYou']);
+Route::get('/thank-you/{invoiceId}', [FrontendController::class,'thankYouPage']);
 Route::get('/add-to-cart/{id}', [FrontendController::class,'addToCart']);
 Route::get('/add-to-cart/delete/{id}', [FrontendController::class,'addToCartDelete']);
 Route::post('/add-to-cart/details/{id}', [FrontendController::class,'addToCartDetails']);
