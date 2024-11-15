@@ -14,31 +14,16 @@
                             <span>categories</span>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        <form class="filter-items" id="collapseOne" action="" method="GET">                                    
+                        <form class="filter-items" id="collapseOne" action="" method="GET"> 
+                            @csrf                                   
+                            @foreach ($allCategories as $category)
                             <div class="item-label">
                                 <label>
                                     <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
+                                    <span>{{$category->name}}</span>
                                 </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
+                            </div> 
+                            @endforeach
                         </form>
                     </div>
                     <div class="filter-items-outer">
@@ -47,46 +32,17 @@
                             <i class="fas fa-angle-down"></i>
                         </div>
                         <form class="filter-items" id="collapseTwo" action="" method="GET">
+                            @csrf
+                            @foreach ($allSubCategories as $subCategory)
                             <div class="item-label">
                                 <label>
                                     <input type="checkbox" value="" id="" name="" class="checkbox" />
                                     <span>
-                                        Test Subcategory
+                                        {{$subCategory->name}}
                                     </span>
                                 </label>
                             </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
+                            @endforeach
                         </form>
                     </div>
                 </div>
@@ -103,43 +59,45 @@
                             <div class="right-side-box">
                                 <h4 class="product-qty">
                                     Total Products
-                                    <span class="number">10</span>
+                                    <span class="number">{{$productsCount}}</span>
                                 </h4>
                             </div>
                         </div>
                     </div>
+                    @foreach ($products as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="product__item-outer">
                             <div class="product__item-image-outer">
-                                <a href="#" class="product__item-image-inner">
-                                    <img src="{{asset('/frontend/assets/images/product.png')}}" alt="Product Image" />
+                                <a href="{{url('/product/details/'.$product->slug)}}" class="product__item-image-inner">
+                                    <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
                                 </a>
                                 <div class="product__item-add-cart-btn-outer">
-                                    <a href="#" class="product__item-add-cart-btn-inner">
+                                    <a href="{{url('add-to-cart/'.$product->id)}}" class="product__item-add-cart-btn-inner">
                                         Add to Cart
                                     </a>
                                 </div>
                                 <div class="product__type-badge-outer">
                                     <span class="product__type-badge-inner">
-                                       Hot
+                                       {{ucfirst($product->product_type)}}
                                     </span>
                                 </div>
                             </div>
                             <div class="product__item-info-outer">
-                                <a href="#" class="product__item-name">
-                                    Test Product
+                                <a href="{{url('/product/details/'.$product->slug)}}" class="product__item-name">
+                                    {{$product->name}}
                                 </a>
                                 <div class="product__item-price-outer">
                                     <div class="product__item-discount-price">
-                                        <del>400 Tk.</del>
+                                        <del>{{$product->regular_price}} Tk.</del>
                                     </div>
                                     <div class="product__item-regular-price">
-                                        <span>300 Tk.</span>
+                                        <span> {{$product->discount_price}}Tk.</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

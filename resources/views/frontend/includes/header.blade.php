@@ -114,7 +114,7 @@
                             </a>
                         </li>
                         <li class="dynamic-page-list-item">
-                            <a href="{{url('/shop')}}" class="dynamic-page-list-item-link">
+                            <a href="{{url('/shop-products')}}" class="dynamic-page-list-item-link">
                                 Shop
                             </a>
                         </li>

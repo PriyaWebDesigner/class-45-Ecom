@@ -34,10 +34,6 @@ class FrontendController extends Controller
     {
         return view ('frontend.checkout');
     }
-    public function shop ()
-    {
-        return view ('frontend.shop');
-    }
     public function returnProcess ()
     {
         return view ('frontend.return-process');
@@ -218,6 +214,15 @@ class FrontendController extends Controller
         $productsCount = $products->count();
         // dd($productsCount);
         return view ('frontend.category-products',compact('products','productsCount'));
+    }
+
+    //Shop Products
+
+    public function shopProducts ()
+    {
+        $products = Product::orderBy('id','desc')->get();
+        $productsCount = $products->count();
+        return view ('frontend.shop', compact('products','productsCount'));
     }
 }
 
