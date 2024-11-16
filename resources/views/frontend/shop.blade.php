@@ -14,12 +14,12 @@
                             <span>categories</span>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        <form class="filter-items" id="collapseOne" action="" method="GET"> 
+                        <form class="filter-items" id="collapseOne" action="{{url('/shop-products')}}" method="GET"> 
                             @csrf                                   
                             @foreach ($allCategories as $category)
                             <div class="item-label">
                                 <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
+                                    <input type="checkbox" value="{{$category->id}}" id="categoryId" name="categoryId" onclick="formSubmitCategory()" class="checkbox" />
                                     <span>{{$category->name}}</span>
                                 </label>
                             </div> 
@@ -31,12 +31,12 @@
                             <span>sub categories</span>
                             <i class="fas fa-angle-down"></i>
                         </div>
-                        <form class="filter-items" id="collapseTwo" action="" method="GET">
+                        <form class="filter-items" id="collapseTwo" action="{{url('/shop-products')}}" method="GET">
                             @csrf
                             @foreach ($allSubCategories as $subCategory)
                             <div class="item-label">
                                 <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
+                                    <input type="checkbox" value="{{$subCategory->id}}" id="subCategoryId" name="subCategoryId" onclick="formSubmitSubCategory()" class="checkbox" />
                                     <span>
                                         {{$subCategory->name}}
                                     </span>
@@ -104,3 +104,15 @@
     </div>
 </section>
 @endsection
+
+@push('js')
+    <script>
+        function formSubmitCategory(){
+            document.getElementById('collapseOne').submit();
+        }
+
+        function formSubmitSubCategory(){
+            document.getElementById('collapseTwo').submit();
+        }
+    </script>
+@endpush
