@@ -236,6 +236,7 @@ class FrontendController extends Controller
 
     public function privacyPolicy ()
     {
+        
         return view ('frontend.privacy-policy');
     }
 

@@ -1,8 +1,8 @@
 <footer class="footer-section">
     <div class="footer__top-wrapper">
         <div class="container">
-            <a href="index.html" class="footer__brand-logo-outer">
-                <img src="{{asset('/frontend/assets/images/logo.png')}}" class="footer__brand-logo-inner" />
+            <a href="{{url('/')}}" class="footer__brand-logo-outer">
+                <img src="{{asset('/backend/images/settings/'.$siteSettingData->logo)}}" class="footer__brand-logo-inner" />
             </a>
         </div>
     </div>    
@@ -49,23 +49,23 @@
                                     Address:                                   
                                 </p>
                                 <p class="footer__contact-info-list-item-value">
-                                    Uttara, Dhaka                                 
+                                    {{$siteSettingData->address}}                                 
                                 </p>
                             </li>
                             <li class="footer__contact-info-list-item">
                                 <p class="footer__contact-info-list-item-label">
                                     Phone:                                   
                                 </p>
-                                <a href="tel:0123456857" class="footer__contact-info-list-item-value">
-                                    0123456857
+                                <a href="tel:{{$siteSettingData->phone}}" class="footer__contact-info-list-item-value">
+                                    {{$siteSettingData->phone}} 
                                 </a>
                             </li>
                             <li class="footer__contact-info-list-item">
                                 <p class="footer__contact-info-list-item-label">
                                     Email:                                   
                                 </p>
-                                <a href="mailto:info@gmail.com" class="footer__contact-info-list-item-value">
-                                    info@gmail.com
+                                <a href="mailto:{{$siteSettingData->email}}" class="footer__contact-info-list-item-value">
+                                    {{$siteSettingData->email}}
                                 </a>
                             </li>
                         </ul>
