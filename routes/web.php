@@ -20,17 +20,20 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('/product/details/{slug}', [FrontendController::class, 'productDetails']);
 Route::get('/view-cart', [FrontendController::class,'viewCart']);
 Route::get('/checkout', [FrontendController::class,'checkout']);
-Route::get('/shop-products', [FrontendController::class,'shopProducts']);
 Route::get('/return/process', [FrontendController::class,'returnProcess']);
-Route::get('/privacy/policy', [FrontendController::class,'privacyPolicy']);
 Route::get('/sub/category', [FrontendController::class,'subCategory']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
 Route::get('/view/all', [FrontendController::class,'viewAll']);
-Route::get('/thank-you/{invoiceId}', [FrontendController::class,'thankYouPage']);
 Route::get('/add-to-cart/{id}', [FrontendController::class,'addToCart']);
 Route::get('/add-to-cart/delete/{id}', [FrontendController::class,'addToCartDelete']);
 Route::post('/add-to-cart/details/{id}', [FrontendController::class,'addToCartDetails']);
 Route::post('/confirm-order', [FrontendController::class,'confirmOrder']);
+Route::get('/thank-you/{invoiceId}', [FrontendController::class,'thankYouPage']);
+Route::get('/shop-products', [FrontendController::class,'shopProducts']);
+Route::get('/privacy-policy', [FrontendController::class,'privacyPolicy']);
+Route::get('/terms-condition', [FrontendController::class,'termsCondition']);
+Route::get('/refund-policy', [FrontendController::class,'refundPolicy']);
+Route::get('/payment-policy', [FrontendController::class,'paymentPolicy']);
 
 //Category Products...
 Route::get('/category-products/{slug}/{id}', [FrontendController::class,'categoryProducts']);
