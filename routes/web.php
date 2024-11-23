@@ -74,3 +74,4 @@ Route::post('/admin/update-subcategory/{id}',[SubCategoryController::class, 'upd
 
 // Site Settings & Plicies
 Route::get('/admin/site-settings',[SiteSettingController::class, 'showSettings']);
+Route::post('/admin/site-settings/update',[SiteSettingController::class, 'updateSettings']);
