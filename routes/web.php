@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Models\Subcategory;
@@ -70,3 +71,6 @@ Route::get('/admin/show-subcategory',[SubCategoryController::class, 'show'])->na
 Route::get('/admin/delete-subcategory/{id}',[SubCategoryController::class, 'delete'])->name('subcategory.delete');
 Route::get('/admin/edit-subcategory/{id}',[SubCategoryController::class, 'edit'])->name('subcategory.edit');
 Route::post('/admin/update-subcategory/{id}',[SubCategoryController::class, 'update'])->name('subcategory.update');
+
+// Site Settings & Plicies
+Route::get('/admin/site-settings',[SiteSettingController::class, 'showSettings']);

@@ -107,22 +107,22 @@
                         </h4>
                         <ul class="footer__social-list">
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettingData->facebook}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettingData->twitter}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettingData->instagram}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettingData->youtube}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
