@@ -9,6 +9,6 @@ class SiteSettingController extends Controller
 {
     public function showsettings ()
     {
-        return view ('');
+        return view ('backend.settings-policies.setting');
     }
 }
