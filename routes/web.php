@@ -75,3 +75,15 @@ Route::post('/admin/update-subcategory/{id}',[SubCategoryController::class, 'upd
 // Site Settings & Plicies
 Route::get('/admin/site-settings',[SiteSettingController::class, 'showSettings']);
 Route::post('/admin/site-settings/update',[SiteSettingController::class, 'updateSettings']);
+
+Route::get('/admin/show/privacy-policy',[SiteSettingController::class, 'showPrivacyPlicy']);
+Route::post('/admin/update/privacy-policy',[SiteSettingController::class, 'updatePrivacyPolicy']);
+
+Route::get('/admin/show/terms-condition',[SiteSettingController::class, 'showTermsCondition']);
+Route::post('/admin/update/terms-condition',[SiteSettingController::class, 'updateTermsCondition']);
+
+Route::get('/admin/show/refund-policy',[SiteSettingController::class, 'showRefundPolicy']);
+Route::post('/admin/update/refund-policy',[SiteSettingController::class, 'updateRefundPolicy']);
+
+Route::get('/admin/show/payment-policy',[SiteSettingController::class, 'showPaymentPolicy']);
+Route::post('/admin/update/payment-policy',[SiteSettingController::class, 'updatePaymentPolicy']);

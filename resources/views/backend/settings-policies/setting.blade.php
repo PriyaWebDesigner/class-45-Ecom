@@ -69,18 +69,18 @@
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Home Banner</label>
-                            <input type="file" accept="image/*" name="banner" class="form-control">
-                        </div>
-                        <img src="{{asset('/backend/images/settings/'.$siteSettingData->banner)}}" height="200" width=300 alt="">
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <label>Logo</label>
                             <input type="file" accept="image/*" name="logo" class="form-control">
                         </div>
                         <img src="{{asset('/backend/images/settings/'.$siteSettingData->logo)}}" height="60" width=150 alt="">
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Home Banner</label>
+                            <input type="file" accept="image/*" name="banner" class="form-control">
+                        </div>
+                        <img src="{{asset('/backend/images/settings/'.$siteSettingData->banner)}}" height="100" width=300 alt="">
                     </div>
 
                     <div class="col-md-12 mt-3">
