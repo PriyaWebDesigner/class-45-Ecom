@@ -74,4 +74,52 @@ class SiteSettingController extends Controller
         toastr()->success('Updated Successfully');
         return redirect()->back();
     }
+
+    public function showTermsCondition ()
+    {
+        return view ('backend.settings-policies.terms-condition');
+    }
+
+    public function updateTermsCondition (Request $request)
+    {
+        $getPolicy = Policy::first();
+
+        $getPolicy->terms_condition = $request->terms_condition;
+
+        $getPolicy->save();
+        toastr()->success('Updated Successfully');
+        return redirect()->back();
+    }
+
+    public function showRefundPolicy ()
+    {
+        return view ('backend.settings-policies.refund-policy');
+    }
+
+    public function updateRefundPolicy (Request $request)
+    {
+        $getPolicy = Policy::first();
+
+        $getPolicy->refund_policy = $request->refund_policy;
+
+        $getPolicy->save();
+        toastr()->success('Updated Successfully');
+        return redirect()->back();
+    }
+
+    public function showPaymentPolicy ()
+    {
+        return view ('backend.settings-policies.payment-policy');
+    }
+
+    public function updatePaymentPolicy (Request $request)
+    {
+        $getPolicy = Policy::first();
+
+        $getPolicy->payment_policy = $request->payment_policy;
+
+        $getPolicy->save();
+        toastr()->success('Updated Successfully');
+        return redirect()->back();
+    }
 }

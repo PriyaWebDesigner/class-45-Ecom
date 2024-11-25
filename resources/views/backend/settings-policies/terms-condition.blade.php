@@ -3,11 +3,11 @@
 @section('content')
 <div class="container-fluid">
     <!-- SELECT2 EXAMPLE -->
-    <form action="{{url('/admin/update/payment-policy')}}" method="POST" enctype="multipart/form-data" class="form-control">
+    <form action="{{url('/admin/update/terms-condition')}}" method="POST" enctype="multipart/form-data" class="form-control">
         @csrf
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Payment Policy</h3>
+                <h3 class="card-title">Terms & Condition</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Privacy Policy Content</label>
-                            <textarea id="summernote" name="payment_policy" required>{{$policy->payment_policy}}</textarea>
+                            <textarea id="summernote" name="terms_condition" required>{{$policy->terms_condition}}</textarea>
                         </div>
                     </div>
 
