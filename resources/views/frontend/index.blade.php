@@ -89,7 +89,7 @@
                 <h1 class="title">
                     Hot Products
                 </h1>
-                <a href="{{ url('/view/all') }}" class="product-view-all-btn">
+                <a href="{{ url('/type-products/hot') }}" class="product-view-all-btn">
                     View All
                 </a>
             </div>
@@ -101,7 +101,7 @@
                                 <img src="{{ asset('backend/images/product/' . $product->image) }}" alt="Product Image" />
                             </a>
                             <div class="product__item-add-cart-btn-outer">
-                                <a href="{{ url('/add-to-cart/'.$product->id) }}" class="product__item-add-cart-btn-inner">
+                                <a href="{{ url('add-to-cart/'.$product->id) }}" class="product__item-add-cart-btn-inner">
                                     Add to Cart
                                 </a>
                             </div>
@@ -137,7 +137,7 @@
                 <h1 class="title">
                     New Arrival
                 </h1>
-                <a href="{{ url('/view/all') }}" class="product-view-all-btn">
+                <a href="{{ url('/type-products/new') }}" class="product-view-all-btn">
                     View All
                 </a>
             </div>
@@ -185,7 +185,7 @@
                 <h1 class="title">
                     Regular Products
                 </h1>
-                <a href="{{ url('/view/all') }}" class="product-view-all-btn">
+                <a href="{{ url('/type-products/regular') }}" class="product-view-all-btn">
                     View All
                 </a>
             </div>
@@ -233,7 +233,7 @@
                 <h1 class="title">
                     Discount Products
                 </h1>
-                <a href="{{ url('/view/all') }}" class="product-view-all-btn">
+                <a href="{{ url('/type-products/discount') }}" class="product-view-all-btn">
                     View All
                 </a>
             </div>

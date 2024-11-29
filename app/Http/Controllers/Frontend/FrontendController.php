@@ -254,6 +254,14 @@ class FrontendController extends Controller
     {
         return view ('frontend.payment-policy');
     }
+
+    public function typeProducts ($type)
+    {
+        $products = Product::where('product_type',$type)->get();
+        // dd($products);
+        $productCount = $products->count();
+        return view ('frontend.type-products',compact('type', 'products','productCount'));
+    }
 }
 
 

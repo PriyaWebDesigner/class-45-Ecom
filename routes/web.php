@@ -39,6 +39,7 @@ Route::get('/payment-policy', [FrontendController::class,'paymentPolicy']);
 //Category Products...
 Route::get('/category-products/{slug}/{id}', [FrontendController::class,'categoryProducts']);
 Route::get('/subcategory-products/{slug}/{id}', [FrontendController::class,'subCategoryProducts']);
+Route::get('/type-products/{type}', [FrontendController::class,'typeProducts']);
 
 Auth::routes();
 
