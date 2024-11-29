@@ -41,6 +41,12 @@ Route::get('/category-products/{slug}/{id}', [FrontendController::class,'categor
 Route::get('/subcategory-products/{slug}/{id}', [FrontendController::class,'subCategoryProducts']);
 Route::get('/type-products/{type}', [FrontendController::class,'typeProducts']);
 
+//Return Process, AboutUs, ContactUs
+Route::get('/return-product', [FrontendController::class,'showReturnForm']);
+Route::post('/return-product-request/store', [FrontendController::class,'storeReturnRequest']);
+
+
+
 Auth::routes();
 
 //Admin Login Url

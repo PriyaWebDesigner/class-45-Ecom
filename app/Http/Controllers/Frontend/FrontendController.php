@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
+use App\Models\ReturnRequest;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -261,6 +262,33 @@ class FrontendController extends Controller
         // dd($products);
         $productCount = $products->count();
         return view ('frontend.type-products',compact('type', 'products','productCount'));
+    }
+
+    public function showReturnForm ()
+    {
+        return view ('frontend.return-product');
+    }
+
+    public function storeReturnRequest (Request $request)
+    {
+        $returnRequest = new ReturnRequest();
+
+        $returnRequest->c_name = $request->c_name;
+        $returnRequest->c_phone = $request->c_phone;
+        $returnRequest->address = $request->address;
+        $returnRequest->order_id = $request->order_id;
+        $returnRequest->issue = $request->issue;
+
+        if(isset($request->image)){
+            $imageName = rand().'-return-'.'.'.$request->image->extension();  //678900-productupdate-.jpg
+            $request->image->move('backend/images/return/',$imageName);
+            
+            $returnRequest->image = $imageName;
+        }
+
+        $returnRequest->save();
+        toastr()->success('Request has been sent successfully');
+        return redirect()->back();
     }
 }
 
