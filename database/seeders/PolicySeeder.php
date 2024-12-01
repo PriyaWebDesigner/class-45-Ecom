@@ -19,6 +19,7 @@ class PolicySeeder extends Seeder
                 'terms_condition' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint iste voluptas dolores excepturi eaque reprehenderit veritatis iure eveniet voluptatum?',
                 'refund_policy' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint iste voluptas dolores excepturi eaque reprehenderit veritatis iure eveniet voluptatum?',
                 'payment_policy' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint iste voluptas dolores excepturi eaque reprehenderit veritatis iure eveniet voluptatum?',
+                'about_us' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint iste voluptas dolores excepturi eaque reprehenderit veritatis iure eveniet voluptatum',
             ]
         ];
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\ContactMessage;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
@@ -256,6 +257,11 @@ class FrontendController extends Controller
         return view ('frontend.payment-policy');
     }
 
+    public function aboutUs ()
+    {
+        return view ('frontend.about-us');
+    }
+
     public function typeProducts ($type)
     {
         $products = Product::where('product_type',$type)->get();
@@ -288,6 +294,26 @@ class FrontendController extends Controller
 
         $returnRequest->save();
         toastr()->success('Request has been sent successfully');
+        return redirect()->back();
+    }
+
+    public function showContactForm ()
+    {
+        return view ('frontend.contact-form');
+    }
+
+    public function storeContact (Request $request)
+    {
+        $contactMessage = new ContactMessage();
+
+        $contactMessage->name = $request->name;
+        $contactMessage->phone = $request->phone;
+        $contactMessage->email = $request->email;
+        $contactMessage->subject = $request->subject;
+        $contactMessage->message = $request->message;
+
+        $contactMessage->save();
+        toastr()->success('Message has been sent successfully');
         return redirect()->back();
     }
 }
