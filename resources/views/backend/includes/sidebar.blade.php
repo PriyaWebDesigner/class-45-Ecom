@@ -78,7 +78,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{asset('/admin/show-subcategory')}}" class="nav-link">
+                <a href="{{url('/admin/show-subcategory')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List</p>
                 </a>
@@ -108,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('/admin/create-product')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Now</p>
                 </a>
