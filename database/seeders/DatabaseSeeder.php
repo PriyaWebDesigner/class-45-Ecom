@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // $this->call(siteSettingSeeder::class);
-        $this->call(PolicySeeder::class);
+        // $this->call(PolicySeeder::class);
     }
 }
