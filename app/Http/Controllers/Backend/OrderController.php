@@ -14,4 +14,14 @@ class OrderController extends Controller
         // dd($orders);
         return view ('backend.order.all-orders',compact('orders'));
     }
+
+    public function updateStatus ($order_id, $status_type)
+    {
+        $order = Order::find($order_id);
+        $order->status = $status_type;
+
+        $order->save();
+        toastr()->success('Satus updated Successfully');
+        return redirect()->back();
+    }
 }
