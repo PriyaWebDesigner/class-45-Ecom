@@ -24,4 +24,10 @@ class OrderController extends Controller
         toastr()->success('Satus updated Successfully');
         return redirect()->back();
     }
+    
+    public function statusWiseOrder ($status_type)
+    {
+        $orders = Order::with('orderDetails')->where('status',$status_type)->get();
+        return view ('backend.order.all-orders',compact('orders'));
+    }
 }
