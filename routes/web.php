@@ -110,3 +110,7 @@ Route::get('/admin/order/{order_id}/{status_type}',[OrderController::class, 'upd
 Route::get('/admin/status-orders/{status_type}',[OrderController::class, 'statusWiseOrder']);
 Route::get('admin/order-edit/{id}',[OrderController::class, 'editOrder']);
 Route::post('admin/order-update/{id}',[OrderController::class, 'updateOrder']);
+
+//Credential....                
+Route::get('/admin/show-credentials',[AuthController::class, 'showCredentials']);
+Route::post('/admin/update-credentials',[AuthController::class, 'updateCredentials']);

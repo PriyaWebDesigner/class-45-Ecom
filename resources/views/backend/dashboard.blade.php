@@ -43,7 +43,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>{{$allOrders}}<sup style="font-size: 20px">%</sup></h3>
+                  <h3>{{$pendingOrders}}<sup style="font-size: 20px"></sup></h3>
   
                   <p>Pending Orders</p>
                 </div>
@@ -58,7 +58,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{$confirmedOrders}}</h3>
   
                   <p>Confirmed Orders</p>
                 </div>
@@ -73,7 +73,7 @@
               <!-- small box -->
               <div class="small-box bg-primary">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{$deliveredOrders}}</h3>
   
                   <p>Delivered Orders</p>
                 </div>
@@ -89,7 +89,7 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>{{$cancelledOrders}}</h3>
   
                   <p>Cancelled Orders</p>
                 </div>

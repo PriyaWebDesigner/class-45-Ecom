@@ -19,7 +19,7 @@ class AdminController extends Controller
         $pendingOrders = Order::where('status', 'pending')->count();
         $confirmedOrders = Order::where('status', 'confirmed')->count();
         $deliveredOrders = Order::where('status', 'delivered')->count();
-        $pOrders = Order::where('status', 'cancelled')->count();
-        return view ('backend.dashboard', compact('allOrders','pendingOrders'));
+        $cancelledOrders = Order::where('status', 'cancelled')->count();
+        return view ('backend.dashboard', compact('allOrders','pendingOrders','confirmedOrders','deliveredOrders','cancelledOrders'));
     }
 }
