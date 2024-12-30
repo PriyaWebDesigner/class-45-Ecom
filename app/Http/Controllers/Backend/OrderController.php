@@ -37,4 +37,21 @@ class OrderController extends Controller
         // dd($order);
         return view ('backend.order.edit-order', compact('order')); 
     }
+
+    public function updateOrder (Request $request, $id)
+    {
+       $order = Order::find($id);
+
+       $order->c_name = $request->c_name;
+       $order->c_phone = $request->c_phone;
+       $order->address = $request->address;
+       $order->area = $request->area;
+       $order->courier_name = $request->courier_name;
+       $order->price = $request->price;
+
+       $order->save();
+       toastr()->success('Order updated Successfully');
+       return redirect()->back();
+
+    }
 }

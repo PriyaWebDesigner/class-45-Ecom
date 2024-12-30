@@ -7,7 +7,8 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form action="{{url('admi/order-update/'.$order->id)}}" method="POST" enctype="multipart/form-data" class="form-control">
+            <form action="{{ url('admin/order-update/' . $order->id) }}" method="POST" enctype="multipart/form-data"
+                class="form-control">
                 @csrf
                 <div class="card card-default">
                     <div class="card-header">
@@ -20,57 +21,79 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Invoice Number</label>
-                                        <input type="text" name="invoiceId" value="{{$order->invoiceId}}" class="form-control" readonly>
+                                        <input type="text" name="invoiceId" value="{{ $order->invoiceId }}"
+                                            class="form-control" readonly>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Customer Name</label>
-                                        <input type="text" name="c_name" value="{{$order->c_name}}" class="form-control" required>
+                                        <input type="text" name="c_name" value="{{ $order->c_name }}"
+                                            class="form-control" required>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Customer Phone</label>
-                                        <input type="text" name="c_phone" value="{{$order->c_phone}}" class="form-control" required>
+                                        <input type="text" name="c_phone" value="{{ $order->c_phone }}"
+                                            class="form-control" required>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Customer Address</label>
-                                        <textarea name="address" class="form-control" required>{{$order->address}}</textarea>
+                                        <textarea name="address" class="form-control" required>{{ $order->address }}</textarea>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Delivery Charge</label>
-                                        <input type="text" name="area" value="{{$order->area}}" class="form-control" required>
+                                        <input type="text" name="area" value="{{ $order->area }}"
+                                            class="form-control" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Select Courier</label>
                                         <select name="courier_name" class="form-control">
-                                            <option value="steadfast">Steadfast</option>
-                                            <option value="redx">REDX</option>
-                                            <option value="other">Other</option>
+                                            <option value="steadfast" @if ($order->courier_name == 'steadfast')
+                                                selected
+                                            @endif>Steadfast</option>
+                                            <option value="redx"@if ($order->courier_name == 'redx')
+                                                selected
+                                            @endif>REDX</option>
+                                            <option value="other" @if ($order->courier_name == 'other')
+                                                selected
+                                            @endif>Other</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-6">
-                                
+                                @foreach ($order->orderDetails as $details)
+                                    <img src="{{ asset('backend/images/product/' . $details->product->image) }}"
+                                        height="100" width="100">
+                                    {{ $details->qty }} x {{ $details->product->name }} <br> <br>
+                                @endforeach
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input type="text" name="price" value="{{ $order->price}}"
+                                            class="form-control" required>
+                                    </div>
+                                </div>
                             </div>
-    
+
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="submit" value="Submit" class="form-control btn btn-success">
+                                    <input type="submit" value="Update" class="form-control btn btn-success">
                                 </div>
                             </div>
                         </div>
@@ -81,4 +104,3 @@
         <!-- /.card-body -->
     </div>
 @endsection
-

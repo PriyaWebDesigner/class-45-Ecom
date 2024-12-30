@@ -56,6 +56,7 @@ Auth::routes();
 
 //Admin Login Url
 Route::get('/admin/login', [AuthController::class, 'adminLogin'])->name('adminLogin');
+Route::get('/admin/logout', [AuthController::class, 'adminLogout'])->name('adminLogout');
 
 //Admin Pannel
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
@@ -108,4 +109,4 @@ Route::get('/admin/all-orders',[OrderController::class, 'showAllOrders']);
 Route::get('/admin/order/{order_id}/{status_type}',[OrderController::class, 'updateStatus']);
 Route::get('/admin/status-orders/{status_type}',[OrderController::class, 'statusWiseOrder']);
 Route::get('admin/order-edit/{id}',[OrderController::class, 'editOrder']);
-Route::get('admi/order-update/{id}',[OrderController::class, 'updateOrder']);
+Route::post('admin/order-update/{id}',[OrderController::class, 'updateOrder']);
