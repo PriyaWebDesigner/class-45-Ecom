@@ -18,16 +18,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach ($categories as $category)
+                  @foreach ($employees as $employee)
                   <tr>
                     <td>{{$loop->index+1}}</td>
+                    <td>{{$employee->name}}</td>
+                    <td>{{$employee->email}}</td>
+                    <td>{{ucfirst($employee->role)}}</td>
                     <td>
-                      <img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100">
-                    </td>
-                    <td>{{$category->name}}</td>
-                    <td>
-                      <a href="{{url('/admin/edit-category/'.$category->id)}}" class="btn btn-primary">Edit</a>
-                      <a href="{{url('/admin/delete-category/'.$category->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                      <a href="{{url('/admin/edit-employee/'.$employee->id)}}" class="btn btn-primary">Edit</a>
+                      {{-- <a href="{{url('/admin/delete-category/'.$category->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a> --}}
                     </td>
                   </tr>
                   @endforeach
