@@ -35,4 +35,28 @@ class RoleController extends Controller
 
 
     }
+
+    public function editEmployee ($id)
+    {
+        $employee = User::find($id);
+        return view ('backend.employee.edit-employee', compact('employee'));
+    }
+
+    public function updateEmployee (Request $request, $id)
+    {
+        $employee = User::find($id);
+
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        if(isset($request->password)){
+            $employee->password = Hash::make($request->password);
+        }
+        $employee->role = $request->role;
+
+        $employee->save();
+        toastr()->success('The employee is added successfully');
+        return redirect('/admin/show-employee');
+
+
+    }
 }
