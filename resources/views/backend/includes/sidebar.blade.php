@@ -44,6 +44,8 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          @if (Auth::user()->role == 'admin')
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -91,7 +93,9 @@
               </li>
             </ul>
           </li>
+          @endif
 
+          @if (Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -115,6 +119,7 @@
               </li>
             </ul>
           </li>
+          @endif
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -158,6 +163,7 @@
             </ul>
           </li>
 
+          @if (Auth::user()->role == 'admin')
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -181,6 +187,7 @@
               </li>
             </ul>
           </li>
+          @endif
 
           <li class="nav-item">
             <a href="#" class="nav-link">
