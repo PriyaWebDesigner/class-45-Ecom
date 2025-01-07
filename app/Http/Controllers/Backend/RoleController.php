@@ -54,7 +54,7 @@ class RoleController extends Controller
         $employee->role = $request->role;
 
         $employee->save();
-        toastr()->success('The employee is added successfully');
+        toastr()->success('The employee is updated successfully');
         return redirect('/admin/show-employee');
 
 

@@ -106,19 +106,24 @@ Route::get('/admin/show/about-us',[SiteSettingController::class, 'showAboutUs'])
 Route::post('/admin/update/about-us',[SiteSettingController::class, 'updateAboutUs']);
 
 //Order Routes...
+
 Route::get('/admin/all-orders',[OrderController::class, 'showAllOrders']);
 Route::get('/admin/order/{order_id}/{status_type}',[OrderController::class, 'updateStatus']);
 Route::get('/admin/status-orders/{status_type}',[OrderController::class, 'statusWiseOrder']);
 Route::get('admin/order-edit/{id}',[OrderController::class, 'editOrder']);
 Route::post('admin/order-update/{id}',[OrderController::class, 'updateOrder']);
 
-//Credential....                
-Route::get('/admin/show-credentials',[AuthController::class, 'showCredentials']);
-Route::post('/admin/update-credentials',[AuthController::class, 'updateCredentials']);
+//Credential.... 
+Route::middleware(['role:admin,employee,editor'])->group(function (){
+    Route::get('/admin/show-credentials',[AuthController::class, 'showCredentials']);
+    Route::post('/admin/update-credentials',[AuthController::class, 'updateCredentials']);
+});               
 
 //Employee
-Route::get('/admin/show-employee',[RoleController::class, 'showEmployee']);
-Route::get('/admin/create-employee',[RoleController::class, 'createEmployee']);
-Route::post('/admin/store-employee',[RoleController::class, 'storeEmployee']);
-Route::get('/admin/edit-employee/{id}',[RoleController::class, 'editEmployee']);
-Route::post('/admin/update-employee/{id}',[RoleController::class, 'updateEmployee']);
+Route::middleware(['role:admin'])->group(function (){
+    Route::get('/admin/show-employee',[RoleController::class, 'showEmployee']);
+    Route::get('/admin/create-employee',[RoleController::class, 'createEmployee']);
+    Route::post('/admin/store-employee',[RoleController::class, 'storeEmployee']);
+    Route::get('/admin/edit-employee/{id}',[RoleController::class, 'editEmployee']);
+    Route::post('/admin/update-employee/{id}',[RoleController::class, 'updateEmployee']);
+});
