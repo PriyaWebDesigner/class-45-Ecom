@@ -20,6 +20,38 @@ class OrderController extends Controller
         $order = Order::find($order_id);
         $order->status = $status_type;
 
+
+        //Courier API Integration...
+        if($status_type == 'delivered'){
+            if($order->courier_name == 'steadfast'){
+
+                $endPoint = "https://portal.packzy.com/api/v1/create_order";
+
+                //Auth Parameter...
+                $apiKey = "hcxcwi09kxxtbrt7sbkkgypg1hrzc2sk";
+                $secretKey = "jfq0xnr0hmc3stowv1na0wso";
+                $contentType = "application/json";
+
+                //Body Parameter...
+                $invoiceNumber = $order->invoiceId;
+                $customerName = $order->c_name;
+                $customerPhone = $order->c_phone;
+                $customerAddress = $order->address;
+                $price = $order->price;
+            }
+            elseif($order->courier_name == 'redx'){
+                //Courier API
+            }
+            elseif($order->courier_name == 'others'){
+                //Courier API
+            }
+            else{
+                toastr()->error('Courier not selected');
+                return redirect()->back();
+            }
+            // End Courier API Integration...
+        }
+
         $order->save();
         toastr()->success('Satus updated Successfully');
         return redirect()->back();
