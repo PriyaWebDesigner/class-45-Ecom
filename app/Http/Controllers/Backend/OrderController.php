@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -38,6 +39,24 @@ class OrderController extends Controller
                 $customerPhone = $order->c_phone;
                 $customerAddress = $order->address;
                 $price = $order->price;
+
+                //The Header...
+                $header = [
+                    'Api-Key' => $apiKey,
+                    'Secret-Key' => $secretKey,
+                    'Content-Type' => $contentType,
+                ];
+
+                //The Payloads
+                $payload = [
+                    'invoice' => $invoiceNumber,
+                    'recipient_name' => $customerName,
+                    'recipient_phone' => $customerPhone,
+                    'recipient_address' => $customerAddress,
+                    'cod_amount' => $price,
+                ];
+
+                $response = Http::withHeaders($header)->post($endPoint, $payload);
             }
             elseif($order->courier_name == 'redx'){
                 //Courier API
