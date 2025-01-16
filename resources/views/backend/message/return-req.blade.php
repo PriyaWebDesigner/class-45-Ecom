@@ -11,12 +11,12 @@
                 <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Subject</th>
-                        <th>Message</th>
+                        <th>date</th>
+                        <th>Customer Name</th>
+                        <th>Customer Phone</th>
+                        <th>Address</th>
+                        <th>Order_id</th>
+                        <th>Issue</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -25,13 +25,13 @@
                   <tr>
                     <td>{{$loop->index+1}}</td>
                     <td>{{$message->created_at}}</td>
-                    <td>{{$message->name}}</td>
-                    <td>{{$message->phone}}</td>
-                    <td>{{$message->email}}</td>
-                    <td>{{$message->subject}}</td>
-                    <td>{{$message->message}}</td>
+                    <td>{{$message->c_name}}</td>
+                    <td>{{$message->c_phone}}</td>
+                    <td>{{$message->address}}</td>
+                    <td>{{$message->order_id}}</td>
+                    <td>{{$message->issue}}</td>
                     <td>
-                      <a href="{{url('/admin/show-contact-message/'.$message->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                      <a href="{{url('/admin/show-return-req-message/'.$message->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                   </tr>
                   @endforeach
