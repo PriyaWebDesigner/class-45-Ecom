@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\GalleryImage;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Size;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
@@ -216,6 +217,35 @@ class ProductController extends Controller
         }
 
         return redirect('/admin/show-product');
+    }
+
+    public function createReview ()
+    {
+        $products = Product::orderBy('name','asc')->get();
+        return view ('backend.review.create',compact('products'));
+    }
+
+    public function storeReview (Request $request)
+    {
+        $review = new Review();
+
+        if(isset($request->image)){
+            $imageName = rand().'-review-'.'.'.$request->image->extension();
+            $request->image->move('backend/images/review/'.$imageName);
+
+            $review->image = $imageName;
+        }
+
+        $review->product_id = $request->product_id;
+        $review->name = $request->name;
+        $review->status = $request->status;
+        $review->comments = $request->comments;
+        $review->rating = $request->rating;
+        $review->image = $request->image;
+
+        $review->save();
+        toastr()->success('Review is added successfully');
+        return redirect()->back();
     }
 
 }
