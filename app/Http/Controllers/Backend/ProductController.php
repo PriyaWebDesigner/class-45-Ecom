@@ -231,7 +231,7 @@ class ProductController extends Controller
 
         if(isset($request->image)){
             $imageName = rand().'-review-'.'.'.$request->image->extension();
-            $request->image->move('backend/images/review/'.$imageName);
+            $request->image->move('backend/images/review/', $imageName);
 
             $review->image = $imageName;
         }
@@ -246,6 +246,13 @@ class ProductController extends Controller
         $review->save();
         toastr()->success('Review is added successfully');
         return redirect()->back();
+    }
+
+    public function showReview ()
+    {
+        $reviews = Review::with('product')->get();
+        // dd($reviews);
+        return view ('backend.review.list',compact('reviews'));
     }
 
 }
