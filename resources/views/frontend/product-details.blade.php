@@ -124,19 +124,18 @@
                                 </div>
                                 <div class="tab-pane fade" id="pills-review" role="tabpanel"
                                     aria-labelledby="pills-review-tab">
+                                    @foreach ($product->review as $item)
                                     <div class="review-item-wrapper">
                                         <div class="review-item-left">
-                                            <i class="fas fa-user"></i>
+                                            <img src="{{asset('backend/images/review/'.$item->image)}}" height="50" width="50" alt="">
                                         </div>
                                         <div class="review-item-right">
                                             <h4 class="review-author-name">
-                                                Saidul Islam
-                                                <span class=" d-inline bg-danger badge-sm badge text-white">Verified</span>
+                                                {{$item->name}}
+                                                <span class=" d-inline bg-danger badge-sm badge text-white">{{$item->status}}</span>
                                             </h4>
                                             <p class="review-item-message">
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis minus, ut
-                                                unde laudantium accusamus odio nam officia aperiam excepturi quis nesciunt
-                                                eveniet eligendi.
+                                                {!!$item->comments!!}
                                             </p>
                                             <span class="review-item-rating-stars">
                                                 <i class="fa-star fas"></i>
@@ -147,6 +146,7 @@
                                             </span>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                                 <div class="tab-pane fade" id="pills-policy" role="tabpanel"
                                     aria-labelledby="pills-policy-tab">
