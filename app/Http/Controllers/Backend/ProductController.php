@@ -228,11 +228,12 @@ class ProductController extends Controller
     public function storeReview (Request $request)
     {
         $review = new Review();
+        // dd($request->image);
 
         if(isset($request->image)){
             $imageName = rand().'-review-'.'.'.$request->image->extension();
             $request->image->move('backend/images/review/', $imageName);
-
+            // dd($imageName);
             $review->image = $imageName;
         }
 
@@ -241,7 +242,6 @@ class ProductController extends Controller
         $review->status = $request->status;
         $review->comments = $request->comments;
         $review->rating = $request->rating;
-        $review->image = $request->image;
 
         $review->save();
         toastr()->success('Review is added successfully');
@@ -253,6 +253,46 @@ class ProductController extends Controller
         $reviews = Review::with('product')->get();
         // dd($reviews);
         return view ('backend.review.list',compact('reviews'));
+    }
+
+    public function deleteReview ($id)
+    {
+        $reviewMessage = Review::find($id);
+        $reviewMessage->delete();
+
+        return redirect()->back();
+    }
+
+    public function editReview ($id)
+    {
+        $review = Review::find($id);
+        $products = Product::get();
+        // dd($review);
+        return view ('backend.review.edit', compact('review','products'));
+    }
+
+    public function updateReview (Request $request ,$id)
+    {
+        $review = Review::find($id);
+
+        $review->name = $request->name;
+        $review->status = $request->status;
+        $review->comments = $request->comments;
+        $review->rating = $request->rating;
+        
+        if(isset($request->image)){
+            if($review->image && file_exists('backend/images/review/'.$review->image)){
+                unlink('backend/images/review/'.$review->image);
+            }
+
+            $imageName = rand().'-review-'.'.'.$request->image->extension();
+            $review->image = $imageName;
+        }
+
+        $review->save();
+        toastr()->success('Successfully updated the review');
+        return redirect('/admin/show-reviews');
+
     }
 
 }

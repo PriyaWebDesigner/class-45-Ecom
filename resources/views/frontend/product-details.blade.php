@@ -132,12 +132,17 @@
                                         <div class="review-item-right">
                                             <h4 class="review-author-name">
                                                 {{$item->name}}
+                                                @if ($item->status != null)
                                                 <span class=" d-inline bg-danger badge-sm badge text-white">{{$item->status}}</span>
+                                                @endif
                                             </h4>
                                             <p class="review-item-message">
                                                 {!!$item->comments!!}
                                             </p>
                                             <span class="review-item-rating-stars">
+                                                @if ($item->rating )
+                                                    
+                                                @endif
                                                 <i class="fa-star fas"></i>
                                                 <i class="fa-star fas"></i>
                                                 <i class="fa-star fas"></i>
