@@ -219,6 +219,7 @@ class ProductController extends Controller
         return redirect('/admin/show-product');
     }
 
+//Review
     public function createReview ()
     {
         $products = Product::orderBy('name','asc')->get();

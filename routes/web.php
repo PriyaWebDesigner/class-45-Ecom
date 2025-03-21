@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\MessageController;
 use App\Http\Controllers\Backend\OrderController;
@@ -154,3 +155,11 @@ Route::middleware(['role:admin,editor'])->group(function (){
     Route::get('/admin/show-return-req-message{id}',[MessageController::class, 'deleteReturnReqMessages']);
 
 });
+ 
+//Banner Routes
+   Route::get('/admin/create-banner', [BannerController::class, 'create'])->name('banner.create');
+   Route::post('/admin/store-banner', [BannerController::class, 'store'])->name('banner.store');
+   Route::get('/admin/show-banner', [BannerController::class, 'show'])->name('banner.show');
+   Route::get('/admin/delete-banner/{id}', [BannerController::class, 'delete'])->name('banner.delete');
+   Route::get('/admin/edit-banner/{id}', [BannerController::class, 'edit'])->name('banner.edit');
+   Route::post('/admin/update-banner/{id}', [BannerController::class, 'update'])->name('banner.update');

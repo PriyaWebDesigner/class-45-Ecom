@@ -24,7 +24,7 @@ class SiteSettingController extends Controller
         $getSiteSettings->facebook = $request->facebook;
         $getSiteSettings->twitter = $request->twitter;
         $getSiteSettings->instagram = $request->instagram;
-        $getSiteSettings->youtube = $request->youtube;
+        $getSiteSettings->youtube = $request->youtube; 
 
 
         if(isset($request->logo)){

@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function adminLogout ()
     {
         Auth::logout();
-        return redirect('/admin/login');
+        return redirect('/admin/login'); 
     }
 
     public function showCredentials ()
