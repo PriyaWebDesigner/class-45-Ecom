@@ -63,21 +63,13 @@
     <section class="banner-section">
         <div class="container">
             <div class="row">
+                @foreach ($banners as $banner)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="banner-item-outer">
-                        <img src="{{ asset('/frontend/assets/images/banner.jpeg') }}" alt="banner image" />
+                        <img src="{{ asset('backend/images/banner/'.$banner->image) }}" alt="banner image" />
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="banner-item-outer">
-                        <img src="{{ asset('/frontend/assets/images/banner.jpeg') }}" alt="banner image" />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="banner-item-outer">
-                        <img src="{{ asset('/frontend/assets/images/banner.jpeg') }}" alt="banner image" />
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

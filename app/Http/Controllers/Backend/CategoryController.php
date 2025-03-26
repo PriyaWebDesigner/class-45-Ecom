@@ -62,7 +62,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
         $category->name = $request->name;
-        $category->slug = Str::slug($request->name);
+        $category->slug = Str::slug($request->name); 
 
         if(isset($request->image)){
             if($category->image && file_exists('backend/images/category/'.$category->image)){

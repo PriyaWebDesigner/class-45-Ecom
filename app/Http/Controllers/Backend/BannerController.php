@@ -40,4 +40,27 @@ class BannerController extends Controller
 
         return redirect()->back();
     }
+    public function edit ($id)
+    {
+        $banner = Banner::find($id);
+        return view ('backend.banner.edit',compact('banner'));
+    }
+    public function update (Request $request ,$id)
+    {
+        $banner = Banner::find($id);
+
+        if(isset($request->image)){
+            if($banner->image && file_exists('backend/images/banner/'.$banner->image)){
+                unlink('backend/images/banner/'.$banner->image);
+            }
+
+            $imageName = rand().'-banner-'.'.'.$request->image->extension();
+            $request->image->move('backend/images/banner',$imageName);
+            $banner->image = $imageName;
+        }
+
+        $banner->save();
+        toastr()->success('Successfully updated the review');
+        return redirect()->back();
+    }
 }
