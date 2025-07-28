@@ -163,3 +163,6 @@ Route::middleware(['role:admin,editor'])->group(function (){
    Route::get('/admin/delete-banner/{id}', [BannerController::class, 'delete'])->name('banner.delete');
    Route::get('/admin/edit-banner/{id}', [BannerController::class, 'edit'])->name('banner.edit');
    Route::post('/admin/update-banner/{id}', [BannerController::class, 'update'])->name('banner.update');
+
+//Accounts..
+   Route::get('/admin/accounts-reports', [OrderController::class, 'sellReport']);

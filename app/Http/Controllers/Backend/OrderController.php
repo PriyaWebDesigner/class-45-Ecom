@@ -107,4 +107,9 @@ class OrderController extends Controller
        return redirect()->back();
 
     }
+
+    public function sellReport (){
+
+        return view ('backend.order.report');
+    }
 }
