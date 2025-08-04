@@ -108,7 +108,27 @@ class OrderController extends Controller
 
     }
 
-    public function sellReport (){
+    public function sellReport (Request $request){
+
+        if(isset($request->form) && isset($request->to)){
+            $orders = Order::whereDate('created-at','>=',$request->form)->whereDate('created-at','>=',$request->to)->where('status','delivered')->with('orderDetails')->get();
+        }
+
+        else{
+            $orders = Order::whereYear('created-at',now()->year)->whereMonth('created-at',now()->month)->where('status','delivered')->with('oderDetails')->get();
+        }
+
+        $totalOrders = $orders->count();
+        $totalSell = $orders->sum('price');
+
+        $totalBuyingCost = 0;
+        $totalCharge = 0;
+
+        foreach($orders as $order)
+        {
+            $totalCharge += $order->area;  // Sum all courier/delivery charges
+        }
+
 
         return view ('backend.order.report');
     }
