@@ -78,7 +78,7 @@
                         <div class="inner">
                             <h3>BDT {{ $profitAmount }}</h3>
 
-                            <p>Total Delivery Charge</p>
+                            <p>Total Profit Amount</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
